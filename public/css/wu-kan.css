@@ -10,9 +10,9 @@
 }
 body {
   background: url(../image/background.jpg);
-  background-size: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-size: cover;
   background-color: rgba(34, 32, 32, 0.39);
   font-family: Menlo, Monaco, "Courier New", Microsoft JhengHei Light, monospace;
 }
