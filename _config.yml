@@ -1,0 +1,169 @@
+markdown: kramdown
+kramdown:
+  input: GFM # Github Flavored Markdown
+  math_engine: katex # 防止行间公式渲染错误
+permalink: /posts/:categories/:title # 博文目录
+baseurl: "/my_blog" # 假如你的博客是建在某个目录下的，请在这里加上目录名，并且下面配置的所有链接里的`/public`前也要加，即`/your_baseurl/public`。这一项结尾不要有'/'
+
+url: http://jiangfan233.github.io
+author: jiang
+
+head: # 删改前确定知道自己在做什么
+- tag: meta # Enable responsiveness on mobile devices
+  var:
+  - key: name
+    value: viewport
+  - key: content
+    value: width=device-width, initial-scale=1.0, maximum-scale=1
+- tag: meta
+  var:
+  - key: http-equiv
+    value: X-UA-Compatible
+  - key: content
+    value: IE=edge
+- tag: meta
+  var:
+  - key: http-equiv
+    value: content-type
+  - key: content
+    value: 'text/html; charset=utf-8'
+- tag: meta # google站点验证
+  var:
+  - key: name
+    value: google-site-verification
+  - key: content
+    value: YIKi1rBnyUaS-DMYiluseI5kZzTwjCkTFmKkSkMZDJk
+- tag: meta # baidu站点验证
+  var:
+  - key: name
+    value: baidu-site-verification
+  - key: content
+    value: bEFDJ1LvXb
+- tag: meta # yandex站点验证
+  var:
+  - key: name
+    value: yandex-verification
+  - key: content
+    value: 52253e02830b443c
+- tag: link
+  var:
+  - key: rel
+    value: profile
+  - key: href
+    value: //gmpg.org/xfn/11
+- tag: link # rss
+  var:
+  - key: rel
+    value: alternate
+  - key: href
+    value: /atom.xml
+  - key: title
+    value: RSS
+  - key: type
+    value: application/rss+xml
+- tag: link # 网站大图标
+  var:
+  - key: rel
+    value: apple-touch-icon-precomposed
+  - key: href
+    value: ./public/image/avatar.jpg
+- tag: link # 小图标，同上
+  var:
+  - key: rel
+    value: 'shortcut icon'
+  - key: href
+    value: ./public/image/avatar.jpg
+- tag: link # 下面是博客的css，有些插件的css是单独在插件里引用的，假如需要自己的css可以仿照去加在后面。无脑cdn加速了。
+  var:
+  - key: rel
+    value: stylesheet
+  - key: href
+    value: /public/css/poole.css
+- tag: link
+  var:
+  - key: rel
+    value: stylesheet
+  - key: href
+    value: /public/css/syntax.css
+- tag: link
+  var:
+  - key: rel
+    value: stylesheet
+  - key: href
+    value: /public/css/lanyon.css
+- tag: link
+  var:
+  - key: rel
+    value: stylesheet
+  - key: href
+    value: /public/css/wu-kan.css
+- tag: link
+  var:
+  - key: rel
+    value: stylesheet
+  - key: href
+    value: //cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css # 在https://fontawesome.com/icons 查看支持的图标
+
+body:
+  theme-base: theme-base-0d # 可选的值08~0f
+  layout-reverse: true # 开启后sidebar在右边，反之左边
+  sidebar-overlay: true # 开启后正文不随sidebar移动而移动
+
+script: # 需要在正文前调用的脚本或者插件的autoloader
+- var:
+  - key: src
+    value: //cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js # jQuery
+- var:
+  - key: src
+    value: /public/js/katex.js
+  - key: js
+    value: //cdn.jsdelivr.net/npm/katex/dist/katex.min.js
+  - key: auto_render
+    value : //cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js
+  - key: stylesheet
+    value: //cdn.jsdelivr.net/npm/katex/dist/katex.min.css
+  - key: delimiters  # 开启行内公式$\KaTeX$支持
+    value: true
+
+sidebar:
+  avatar: # 侧边栏显示的头像
+    enable: true
+    img: ./public/image/LAvatar.jpg # 头像的地址
+    info: <br/><br/>deep♂<br/>dark♂<br/>fantasy♂ # 头像背后的信息
+  description: '<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100% height=52 src="//music.163.com/outchain/player?type=2&id=1311263606&auto=0&height=32"></iframe>'
+  social:
+  - title: jiangdadadada@outlook.com # email
+    href: mailto:jiangdadadada@outlook.com.com
+    class: 'fas fa-envelope fa-fw'
+  - title: github
+    href: //github.com/jiangfan233
+    class: 'fab fa-github fa-fw'
+  - title: 794110493 # qq
+    class: 'fab fa-qq fa-fw'
+  nav:
+  - title: '<i class="fas fa-home fa-fw"></i> 首页'
+    href: /
+  - title: '<i class="fas fa-tags fa-fw"></i> 标签'
+    href: /tags
+  - title: '<i class="fas fa-archive fa-fw"></i> 归档'
+    href: /archive
+  simple_jekyll_search:
+    enable: true
+    autoloader: /public/simple-jekyll-search/autoloader.js
+    stylesheet: //cdn.jsdelivr.net/gh/wu-kan/wu-kan.github.io@1788f1b6c2e12cca626b85f25749f99ca0c7aad0/public/simple-jekyll-search/search_box.min.css
+    src: //cdn.jsdelivr.net/npm/simple-jekyll-search/dest/simple-jekyll-search.min.js
+    placeholder: 搜索博文
+    json: /public/simple-jekyll-search/search.json
+
+index:
+  showtag:
+  - 标签1
+  - 标签2
+
+page404:
+  search_children: # 腾讯公益
+    enable: true
+    src: //qzonestyle.gtimg.cn/qzone/hybrid/app/404/search_children.js
+    charset: utf-8
+    homePageUrl: '/'
+    homePageName: 回到我的主页

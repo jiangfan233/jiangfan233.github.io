@@ -1,0 +1,24 @@
+---
+layout: page
+---
+{{ content }}
+<h2>最近</h2>
+<ul>
+  {% for post in site.posts offset:0 limit:4 %}
+  <li>
+    <a href="{{ post.url }}">{{ post.title }}</a>, {{ post.date | date_to_string }}
+  </li>
+  {% endfor %}
+</ul>
+{% for tag in site.index.showtag %}
+<h3>
+  {{ tag }}
+</h3>
+<ul>
+  {% for post in site.tags[tag] %}
+  <li>
+    <a href="{{ post.url }}">{{ post.title }}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% endfor %}

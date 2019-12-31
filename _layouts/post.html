@@ -1,0 +1,20 @@
+---
+layout: comments
+---
+<div class="post">
+  {% if site.post.meta.enable %}
+  <small class="post-date">
+    {% for node in page.tags %}
+    <i class="fas fa-tag"></i>
+    {{ node }}
+    {% endfor %}
+    </br>
+    {% if page.background_music %}
+    <div>
+      {{ page.background_music }}
+    </div>
+    {% endif %}
+  </small>
+  {% endif %}
+  {{ content }}
+</div>
