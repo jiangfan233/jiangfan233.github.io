@@ -5,7 +5,7 @@
 }
 @media (min-width: 96em) {
   .container {
-    max-width: 48rem;
+    max-width: 52rem;
   }
 }
 body {
@@ -24,8 +24,8 @@ pre {
   overflow: auto;
 }
 .content {
-  background-color: rgba(255,255,255,.4);
-  box-shadow: 0 0 1rem #fff;
+  rgba(255, 255, 255, 0);
+  box-shadow: 0 0 1rem #000;
 }
 .masthead {
   margin-bottom: 0rem;
