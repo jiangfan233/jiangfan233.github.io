@@ -241,7 +241,8 @@ tbody tr:nth-child(odd) td,tbody tr:nth-child(odd) th {
 	padding-left: 1rem;
 	padding-right: 1rem;
 	margin-left: auto;
-	margin-right: auto
+	margin-right: auto;
+	margin-top: 1%;
 }
 
 .masthead {
