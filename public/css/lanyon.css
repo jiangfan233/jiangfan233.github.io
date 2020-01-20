@@ -15,7 +15,7 @@ html {
 h1,h2,h3,h4,h5,h6 {
 	font-family: "PT Sans",Helvetica,Arial,sans-serif;
 	font-weight: 180;
-    color:#ffffff;
+    color:#3188be;
     letter-spacing: -.025rem;
 }
 
@@ -50,7 +50,7 @@ h1,h2,h3,h4,h5,h6 {
 .masthead-title {
 	margin-top: 0;
 	margin-bottom: 0;
-	color: #1c85b0;
+	color: #000;
     margin-left: 10%;
 }
 

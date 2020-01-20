@@ -1,4 +1,5 @@
 markdown: kramdown
+highlighter: rouge
 kramdown:
   input: GFM # Github Flavored Markdown
   math_engine: katex # 防止行间公式渲染错误
@@ -131,7 +132,6 @@ sidebar:
   avatar: # 侧边栏显示的头像
     enable: true
     img: ./public/image/LAvatar.jpg # 头像的地址
-    info: <br/><br/>deep♂<br/>dark♂<br/>fantasy♂ # 头像背后的信息
   description: '<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100% height=52 src="//music.163.com/outchain/player?type=2&id=1311263606&auto=0&height=32"></iframe>'
   social:
   - title: jiangdadadada@outlook.com # email
@@ -159,8 +159,7 @@ sidebar:
 
 index:
   showtag:
-  - 标签1
-  - 标签2
+  - 网络
 
 page404:
   search_children: # 腾讯公益
