@@ -4,14 +4,11 @@ title: tls握手
 date: 2020-01-20 14:53:07 +0800
 tag: 网络
 ---
-
-tls握手
-
-一、Diffie-Hellman秘钥交换
+### 一、Diffie-Hellman秘钥交换
 
 假设有3个人，Alice，Bob，和Eve，其中Alice和Bob为通信的两方，Eve为想窃取秘钥的中间人
 
-1、Alice和Bob约定` g=3 p=17`，这些信息是公开的，Eve也知道；
+1、Alice和Bob约定`g=3 p=17`，这些信息是公开的，Eve也知道；
 
 2、Alice生成一个随机数 `15`，计算` 3^15 mod 17 = b`，将`b`发送到Bob，这个过程可被Eve窃取；
 
@@ -21,7 +18,7 @@ tls握手
 
 5、Eve如果想要拿到秘钥，只能根据` a、g、p`计算出Bob生成的随机数`13`或者`b、g、p`计算出Alice生成的随机数`15`，但是这样所需的计算量超级大（具体我也不知道为啥，这里只是为后面理解共享秘钥的交换原理稍加解释，避免一头雾水，具体数学原理不做深究），所以这样避免了中间人Eve窃取加密的共享秘钥的可能。
 
-二、抓包分析
+### 二、抓包分析
 
 chrom地址栏访问 https://www.baidu.com
 
@@ -75,21 +72,21 @@ master_secret = PRF（pre_master_secret，“master secret”，ClientHello.rand
 
 <img src="../../public/image/shake_end.png">
 
-三、go http对于tls握手的实现(相关源码复杂，这里简单做下笔记)
+### 三、go http对于tls握手的实现(相关源码复杂，这里简单做下笔记)
 
 1、使用下面方法开启服务进程的时候，将建立https会话
 
-```
+~~~go
 // addr:tcp监听端口 certFile:证书 keyFile:私钥 handler:多路复用器
 func ListenAndServeTLS(addr, certFile, keyFile string, handler Handler) error {
 	server := &Server{Addr: addr, Handler: handler}
 	return server.ListenAndServeTLS(certFile, keyFile)
 }
-```
+~~~
 
 2、实现tls握手
 
-```
+~~~go
 // 实现了从客户端到服务器的tls握手及服务器到客户端的tls握手
 func (c *Conn) Handshake() error {
 	c.handshakeMutex.Lock()
@@ -125,11 +122,11 @@ func (c *Conn) Handshake() error {
 
 	return c.handshakeErr
 }
-```
+~~~
 
 3、服务器->客户端 tls握手
 
-```
+~~~go
 func (c *Conn) serverHandshake() error {
    // 第一次握手生成 session ticket相关秘钥及session id
    c.config.serverInitOnce.Do(func() { c.config.serverInit(nil) })
@@ -202,4 +199,4 @@ func (c *Conn) serverHandshake() error {
 
    return nil
 }
-```
+~~~

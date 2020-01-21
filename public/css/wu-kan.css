@@ -148,13 +148,6 @@ pre {
   -o-transform-origin: 0% 50%;
   transform-origin: 0% 50%;
 }
-/* .ih-item.circle.effect.right_to_left a:hover .img {
-  -webkit-transform: rotate3d(0, 1, 0, -180deg);
-  -moz-transform: rotate3d(0, 1, 0, -180deg);
-  -ms-transform: rotate3d(0, 1, 0, -180deg);
-  -o-transform: rotate3d(0, 1, 0, -180deg);
-  transform: rotate3d(0, 1, 0, -180deg);
-} */
 .ih-item a:hover {
   text-decoration: none;
 }
