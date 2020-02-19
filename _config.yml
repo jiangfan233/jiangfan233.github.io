@@ -69,6 +69,7 @@ sidebar:
 index:
   showtag:
   - 网络
+  - golang
 
 post:
   meta:
