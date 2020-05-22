@@ -22,10 +22,10 @@ import:
 
 - package: github.com/gorilla/handlers
   version: v1.4.2
-  repo:    http://gitlab.gf.com.cn/golang-repos/gorilla-handlers.git
+  repo:    http://test.com.cn/golang-repos/gorilla-handlers.git
 
-- package: gitlab.gf.com.cn/golang-modules/hello_world
-  repo:    http://gitlab.gf.com.cn/golang_modules/hello_world.git
+- package: test.com.cn/golang-modules/hello_world
+  repo:    http://test.com.cn/golang_modules/hello_world.git
   version: master
 ```
 
@@ -132,7 +132,7 @@ GONOPROXY、GONOSUMDB、GOPRIVATE均是为了解决私有模块的问题，即go
 <u>go.mod</u>：
 
 ```
-module gitlab.gf.com.cn/gfmiddle/demo
+module test.com.cn/gfmiddle/demo
 
 go 1.13
 
@@ -210,11 +210,11 @@ https://github.com/golang/go/wiki/Modules#how-to-use-modules
 
 ```
 - package: github.com/boj/redistore
-  repo:    http://gitlab.gf.com.cn/golang-repos/boj-redistore.git
+  repo:    http://test.com.cn/golang-repos/boj-redistore.git
   version: v1.2
 
-- package: gitlab.gf.com.cn/golang-modules/config
-  repo:    http://gitlab.gf.com.cn/golang-modules/config.git
+- package: test.com.cn/golang-modules/config
+  repo:    http://test.com.cn/golang-modules/config.git
   version: v2.0
 ```
 
@@ -237,7 +237,7 @@ github.com/gorilla/handlers v0.0.0-20161206055144-3a5767ca75ec
 import gin v1.3.0，该版本目录下不包含go.mod文件，项目root目录执行go mod tidy，生成go.mod为：
 
 ```
-module gitlab.gf.com.cn/gfmiddle/demo
+module test.com.cn/gfmiddle/demo
 
 go 1.13
 
@@ -261,7 +261,7 @@ require (
 导入 gin v1.5.0：
 
 ```
-module gitlab.gf.com.cn/gfmiddle/demo
+module test.com.cn/gfmiddle/demo
 
 go 1.13
 
@@ -273,8 +273,8 @@ require github.com/gin-gonic/gin v1.5.0
 ###### 3）v2+版本的模块导入路径问题
 
 ```
-- package: gitlab.gf.com.cn/golang-modules/request
-  repo:    http://gitlab.gf.com.cn/golang-modules/request.git
+- package: test.com.cn/golang-modules/request
+  repo:    http://test.com.cn/golang-modules/request.git
   version: v2.3
 ```
 
@@ -282,27 +282,27 @@ require github.com/gin-gonic/gin v1.5.0
 
 ###### 4）ci
 
-设置 `GOPRIVATE=gitlab.gf.com.cn/*`拉取基础库代码，在项目目录下运行go build -x：
+设置 `GOPRIVATE=test.com.cn/*`拉取基础库代码，在项目目录下运行go build -x：
 
 ```
 lxdeMacBook-Pro-5:demo jiang$ go build -x
 WORK=/var/folders/1y/64rb620j49398vfz8rq6kx300000gp/T/go-build873278309
-# get https://gitlab.gf.com.cn/golang-modules/hello?go-get=1
-# get https://gitlab.gf.com.cn/golang-modules?go-get=1
-# get //gitlab.gf.com.cn/golang-modules?go-get=1: Get https://gitlab.gf.com.cn/golang-modules?go-get=1: dial tcp 192.168.124.14:443: connect: connection refused
-# get //gitlab.gf.com.cn/golang-modules/hello?go-get=1: Get https://gitlab.gf.com.cn/golang-modules/hello?go-get=1: dial tcp 192.168.124.14:443: connect: connection refused
-# get https://goproxy.cn/gitlab.gf.com.cn/@v/list
-# get https://goproxy.cn/gitlab.gf.com.cn/@v/list: 404 Not Found (5.920s)
-# get https://gitlab.gf.com.cn/golang-modules?go-get=1
-# get https://gitlab.gf.com.cn/?go-get=1
-# get https://gitlab.gf.com.cn/golang-modules/hello?go-get=1
-# get //gitlab.gf.com.cn/?go-get=1: Get https://gitlab.gf.com.cn/?go-get=1: dial tcp 192.168.124.14:443: connect: connection refused
-# get //gitlab.gf.com.cn/golang-modules/hello?go-get=1: Get https://gitlab.gf.com.cn/golang-modules/hello?go-get=1: dial tcp 192.168.124.14:443: connect: connection refused
-# get //gitlab.gf.com.cn/golang-modules?go-get=1: Get https://gitlab.gf.com.cn/golang-modules?go-get=1: dial tcp 192.168.124.14:443: connect: connection refused
-build gitlab.gf.com.cn/gfmiddle/demo: cannot load gitlab.gf.com.cn/golang-modules/hello: cannot find module providing package gitlab.gf.com.cn/golang-modules/hello
+# get https://test.com.cn/golang-modules/hello?go-get=1
+# get https://test.com.cn/golang-modules?go-get=1
+# get //test.com.cn/golang-modules?go-get=1: Get https://test.com.cn/golang-modules?go-get=1: dial tcp 192.168.124.14:443: connect: connection refused
+# get //test.com.cn/golang-modules/hello?go-get=1: Get https://test.com.cn/golang-modules/hello?go-get=1: dial tcp 192.168.124.14:443: connect: connection refused
+# get https://goproxy.cn/test.com.cn/@v/list
+# get https://goproxy.cn/test.com.cn/@v/list: 404 Not Found (5.920s)
+# get https://test.com.cn/golang-modules?go-get=1
+# get https://test.com.cn/?go-get=1
+# get https://test.com.cn/golang-modules/hello?go-get=1
+# get //test.com.cn/?go-get=1: Get https://test.com.cn/?go-get=1: dial tcp 192.168.124.14:443: connect: connection refused
+# get //test.com.cn/golang-modules/hello?go-get=1: Get https://test.com.cn/golang-modules/hello?go-get=1: dial tcp 192.168.124.14:443: connect: connection refused
+# get //test.com.cn/golang-modules?go-get=1: Get https://test.com.cn/golang-modules?go-get=1: dial tcp 192.168.124.14:443: connect: connection refused
+build test.com.cn/gfmiddle/demo: cannot load test.com.cn/golang-modules/hello: cannot find module providing package test.com.cn/golang-modules/hello
 ```
 
-可以看到实际访问的是 `https://gitlab.gf.com.cn/golang-modules/hello?go-get=1`，而我们的gitlab仅支持http。具体参考：https://github.com/golang/go/issues/32966
+可以看到实际访问的是 `https://test.com.cn/golang-modules/hello?go-get=1`，而我们的gitlab仅支持http。具体参考：https://github.com/golang/go/issues/32966
 
 ##### 4、结论
 
